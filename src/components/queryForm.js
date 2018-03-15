@@ -1,9 +1,8 @@
-import React from "react";
-import { Component } from "react-dom";
+import React, { Component } from "react";
 
-class QueryFrom extends Component {
+class QueryForm extends Component {
   state = {
-      value=''
+    value: ""
   };
 
   render() {
@@ -13,8 +12,11 @@ class QueryFrom extends Component {
         <div className="query-form-wrapper">
           <label>Enter text to analyze its sentiment </label>
           <textarea id="sentiment" value={this.state.value} />
+          <button type="button"> Submit </button>
         </div>
       </div>
     );
   }
 }
+
+export default QueryForm;
