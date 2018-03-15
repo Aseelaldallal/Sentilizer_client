@@ -1,10 +1,12 @@
 import React, { Component } from "react";
+import axios from "../axios-sentiment";
 import "./queryForm.css";
 
 class QueryForm extends Component {
   state = {
     value: "",
-    submitDisabled: true
+    submitDisabled: true,
+    sentiment: ""
   };
 
   handleChange = event => {
@@ -16,9 +18,31 @@ class QueryForm extends Component {
     }
   };
 
+  fetchSentiment = () => {
+    axios
+      .post("/", {
+        sentence: this.state.value
+      })
+      .then(response => {
+        this.setState({ sentiment: response.data });
+      })
+      .catch(error => {
+        console.log("Error: ", error);
+      });
+  };
+
   handleSubmit = () => {};
 
   render() {
+    let response_div = "";
+    if (this.state.sentiment !== "") {
+      response_div = (
+        <div className="response-wrapper">
+          <h3> Sentiment: </h3>
+          <div className="response-text">{this.state.sentiment}</div>
+        </div>
+      );
+    }
     return (
       <div className="query-page-werapper">
         <h1 className="page-heading">Sentilizer Welcomes You :) </h1>
@@ -29,11 +53,15 @@ class QueryForm extends Component {
             value={this.state.value}
             onChange={this.handleChange}
           />
-          <button type="button" disabled={this.state.submitDisabled}>
-            {" "}
-            Submit{" "}
+          <button
+            type="button"
+            disabled={this.state.submitDisabled}
+            onClick={this.fetchSentiment}
+          >
+            Submit
           </button>
         </div>
+        {response_div}
       </div>
     );
   }
