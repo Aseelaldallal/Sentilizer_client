@@ -1,3 +1,7 @@
+.page-heading {
+  color: #84c00c;
+}
+
 .query-form-wrapper {
   width: 50%;
   margin: 0 auto;
@@ -25,8 +29,14 @@
   border-radius: 5px;
   background-color: #84c00c;
   border: none;
+  cursor: pointer;
 }
 
 .query-form-wrapper button:hover {
   background-color: #669509;
+}
+
+.query-form-wrapper button:disabled {
+  background-color: rgba(132, 192, 12, 0.3);
+  cursor: default;
 }
