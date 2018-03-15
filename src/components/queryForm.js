@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./queryForm.css";
 
 class QueryForm extends Component {
   state = {

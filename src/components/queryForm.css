@@ -1,0 +1,28 @@
+.query-form-wrapper {
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.query-form-wrapper label {
+  color: white;
+}
+
+.query-form-wrapper label,
+.query-form-wrapper textarea,
+.query-form-wrapper button {
+  width: 100%;
+}
+
+.query-form-wrapper textarea {
+  min-height: 200px;
+  margin-top: 15px;
+}
+
+.query-form-wrapper button {
+  height: 40px;
+  margin-top: 30px;
+  border-radius: 5px;
+  background-color: #84c00c;
+  border: none;
+}
