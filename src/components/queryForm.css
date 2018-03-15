@@ -26,3 +26,7 @@
   background-color: #84c00c;
   border: none;
 }
+
+.query-form-wrapper button:hover {
+  background-color: #669509;
+}
